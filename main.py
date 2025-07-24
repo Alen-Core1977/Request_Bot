@@ -1,10 +1,11 @@
+import os
 from telegram import Update
 from telegram.ext import (
     Application, CommandHandler, MessageHandler, filters,
     ContextTypes, ConversationHandler
 )
 
-TOKEN = "7803116880:AAFxMDbfKXWh0FIUf2vVjZuOlbJsd4DDRr8"
+TOKEN = os.getenv("BOT_TOKEN")
 ADMIN_ID = 7306973574  # ← замени на свой Telegram ID
 
 NAME, PHONE, REQUEST = range(3)
