@@ -72,4 +72,11 @@ conv_handler = ConversationHandler(
 app.add_handler(CommandHandler("start", start))
 app.add_handler(conv_handler)
 
-app.run_polling()
+PORT = int(os.environ.get("PORT", 8443))
+WEBHOOK_URL = f"https://{os.environ['RENDER_EXTERNAL_HOSTNAME']}/"
+
+app.run_webhook(
+    listen="0.0.0.0",
+    port=PORT,
+    webhook_url=WEBHOOK_URL,
+)
